@@ -15,15 +15,15 @@ public class Program {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
         System.out.println("Enter client data:");
-        System.out.println("Name: ");
+        System.out.print("Name: ");
         String name = sc.nextLine();
-        System.out.println("Email: ");
+        System.out.print("Email: ");
         String email = sc.nextLine();
-        System.out.println("Birth Date: ");
+        System.out.print("Birth Date: ");
         String birthDate = sc.nextLine();
 
         System.out.println("Enter order data");
-        System.out.println("Status: ");
+        System.out.print("Status: ");
         String status = sc.nextLine();
         Order order = new Order(new Date(), OrderStatus.valueOf(status), new Client(name, email, sdf.parse(birthDate)));
 
@@ -31,22 +31,18 @@ public class Program {
         int n = sc.nextInt();
         for(int i = 1; i<= n; i++) {
             System.out.println("Enter #" + i + " data:");
-            System.out.println("Product name: ");
-            String productName = sc.nextLine();
-            System.out.println("Product Price: ");
-            Double price = sc.nextDouble();
-            System.out.println("Quantity: ");
+            System.out.print("Product name: ");
+            String productName = sc.next();
+            System.out.print("Product Price: ");
+            double price = sc.nextDouble();
+            System.out.print("Quantity: ");
             int quantity = sc.nextInt();
             OrderItem orderItem = new OrderItem(quantity, price, new Product(productName, price));
+            order.addItem(orderItem);
         }
 
-        System.out.println("ORDER SUMMARY:");
-        System.out.println("Order moment: " + order.getMoment());
-        System.out.println("Order Status: " + order.getOrder());
-        System.out.println("Client: " + order.getClient().getName() + " - " + order.getClient().getEmail());
-
+        System.out.println(order);
 
         sc.close();
     }
-
 }

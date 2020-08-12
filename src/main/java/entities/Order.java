@@ -58,4 +58,22 @@ public class Order {
             total += i.subTotal();
         } return total;
     }
+
+    public String toString() {
+        StringBuilder stb = new StringBuilder();
+        stb.append("\n");
+        stb.append("ORDER SUMMARY: \n");
+        stb.append("Order moment: " + getMoment() + "\n");
+        stb.append("Order Status: " + getOrder() + "\n");
+        stb.append("Client: " + getClient().getName()
+                + " (" + client.getBirthDate() + ") "
+                + " - " + getClient().getEmail() + "\n");
+        stb.append("Order Items: \n");
+        for(OrderItem i : items) {
+            stb.append(i.getProduct().getName());
+            stb.append(", $" + i.getPrice());
+            stb.append(", Quantity: " + i.getQuantity());
+            stb.append(", Subtotal: $" + i.subTotal() + "\n");
+        } return stb.toString() + "\n" + "Total Price: $" + total();
+    }
 }

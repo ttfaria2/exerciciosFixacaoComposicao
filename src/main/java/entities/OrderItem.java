@@ -4,6 +4,7 @@ public class OrderItem {
 
     private Integer quantity;
     private Double price;
+
     private Product product;
 
 
@@ -34,10 +35,6 @@ public class OrderItem {
 
     public Product getProduct() {
         return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 
     public Double subTotal() {
