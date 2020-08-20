@@ -20,11 +20,12 @@ public class Program {
         System.out.print("Email: ");
         String email = sc.nextLine();
         System.out.print("Birth Date: ");
-        String birthDate = sc.nextLine();
+        String birthDate = sc.nextLine(); // add Date  parse aqui
 
         System.out.println("Enter order data");
         System.out.print("Status: ");
-        String status = sc.nextLine();
+        String status = sc.nextLine(); //ler na forma de OrderStatus usar valueOff
+
         Order order = new Order(new Date(), OrderStatus.valueOf(status), new Client(name, email, sdf.parse(birthDate)));
 
         System.out.print("How many items to this order? ");
@@ -37,6 +38,7 @@ public class Program {
             double price = sc.nextDouble();
             System.out.print("Quantity: ");
             int quantity = sc.nextInt();
+
             OrderItem orderItem = new OrderItem(quantity, price, new Product(productName, price));
             order.addItem(orderItem);
         }
